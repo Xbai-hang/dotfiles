@@ -16,7 +16,6 @@ clone_or_update() {
     git -C "$dir" pull --ff-only
   elif [[ ! -e "$dir" ]]; then
     git clone --depth=1 "$repo" "$dir"
-    B
   else
     echo "skip: $dir exists but is not a git repository"
   fi
@@ -46,3 +45,4 @@ clone_or_update \
 clone_or_update \
   https://github.com/zsh-users/zsh-history-substring-search.git \
   "$PLUGIN_DIR/zsh-history-substring-search"
+
