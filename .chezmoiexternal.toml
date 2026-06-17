@@ -1,0 +1,7 @@
+[".config/nvim"]
+type = "git-repo"
+url = "git@github.com:Xbai-hang/nvim.config.git"
+refreshPeriod = "1m"
+
+[".config/nvim".pull]
+args = ["--ff-only"]
