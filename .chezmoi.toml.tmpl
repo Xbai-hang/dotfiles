@@ -1,0 +1,9 @@
+{{- $gitName := promptStringOnce . "gitName" "Git user.name" -}}
+{{- $gitEmail := promptStringOnce . "gitEmail" "Git user.email" -}}
+
+[diff]
+	pager = "delta"
+
+[data]
+	gitName = {{ $gitName | quote }}
+	gitEmail = {{ $gitEmail | quote }}

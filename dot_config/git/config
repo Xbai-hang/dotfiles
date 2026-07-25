@@ -1,0 +1,44 @@
+[init]
+	defaultBranch = main
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Catppuccin Mocha
+
+	# 🎨 莫兰迪低饱和度配色方案 (极其护眼，告别刺眼的大红大绿)
+	minus-style = syntax "#341a22"                  # 删除行背景色 (暗粉红)
+	minus-non-emph-style = syntax "#341a22"
+	minus-emph-style = syntax "#512635"              # 删除行中被改动的单词高亮 (稍亮的粉红)
+	minus-empty-line-marker-style = syntax "#341a22"
+
+	plus-style = syntax "#1a322e"                   # 新增行背景色 (暗松石绿)
+	plus-non-emph-style = syntax "#1a322e"
+	plus-emph-style = syntax "#274d45"               # 新增行中被改动的单词高亮 (稍亮的青绿)
+	plus-empty-line-marker-style = syntax "#1a322e"
+
+	# 行号样式微调 (淡雅低调，不抢代码视线)
+	line-numbers-left-format = "{nm:^4} │ "
+	line-numbers-right-format = "{np:^4} │ "
+	line-numbers-left-style = "#585b70"             # 左边行号颜色
+	line-numbers-right-style = "#585b70"            # 右边行号颜色
+	line-numbers-minus-style = "#f38ba8"            # 减号行号高亮
+	line-numbers-plus-style = "#a6e3a1"             # 加号行号高亮
+
+	# 边框与装饰
+	features = decorations
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
+[merge]
+	conflictStyle = zdiff3
