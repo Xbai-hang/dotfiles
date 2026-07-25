@@ -12,6 +12,13 @@ font-size = 14
 font-thicken = true
 adjust-cell-height = 2
 
+# Enable option key as Alt/Meta key (Fix Neovim <A-key> mappings)
+macos-option-as-alt = true
+keybind = option+left=unbind
+keybind = option+right=unbind
+keybind = option+up=unbind
+keybind = option+down=unbind
+
 # --- Theme and Colors ---
 # Catppuccin with automatic light/dark switching
 theme = Catppuccin Mocha
