@@ -1,0 +1,18 @@
+# ~/.config/zsh/.zshrc
+# 1: 基石
+[[ -f "$ZDOTDIR/01-env.zsh" ]] && source "$ZDOTDIR/01-env.zsh"
+
+# 2. 视觉引擎极速启动
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# 3. 自动化模块装载
+for file in $ZDOTDIR/[0-9]*.zsh; do
+  # 跳过在 PHASE 1 中已经提前加载的文件
+  [[ "$file" == *"/01-env.zsh" ]] && continue
+  source "$file"
+done
+
+# 4. 本地私有配置
+[[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
