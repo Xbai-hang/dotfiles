@@ -1,12 +1,33 @@
 # macOS
-.DS_Store
-._*
+.DS_Store        # Finder 元数据
+._*              # 资源 fork 文件
+.Spotlight-V100  # Spotlight 索引
+.Trashes         # 废纸篓
+.fseventsd       # 文件系统事件日志
 
 # Windows
 Thumbs.db
 Desktop.ini
 
 # Editor temporary files
-*~
-*.swp
-*.swo
+*~       # Emacs/Vim 备份
+*.swp    # Vim swap
+*.swo    # Vim swap（只读）
+
+# 编辑器工作区配置（个人本地设置，不属于项目）
+.vscode/
+.idea/
+
+# Node / Python 运行时产物
+node_modules/
+__pycache__/
+*.pyc
+
+# Coding Agent 产物（工具链私有，不属于项目）
+**/.agents
+**/.claude
+**/.codex
+**/.trellis
+AGENTS.md
+CLAUDE.md
+Context.md
