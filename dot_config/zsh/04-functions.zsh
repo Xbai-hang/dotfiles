@@ -73,6 +73,15 @@ ccp() {
   claude --settings "$HOME/.claude/settings.${profile}.json" "$@"
 }
 
+# Claude Code Profile 切换（跳过权限确认，适合本地开发）
+ccpd() {
+    if [[ -z "$1" ]]; then
+        echo "usage: ccpd <profile> [other claude args..]"
+        return 1
+    fi
+    ccp "$1" --dangerously-skip-permissions -d "${@:2}"
+}
+
 web_search() {
   local engine=$1
   shift
