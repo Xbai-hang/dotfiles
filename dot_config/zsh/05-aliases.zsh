@@ -23,6 +23,12 @@ else
   alias la='command ls -la --color=auto'
 fi
 
+# [lazygit] ------------------------------------------------
+if command -v lazygit >/dev/null 2>&1; then
+  alias lg='lazygit'
+  alias lazy='lazygit'
+fi
+
 # [bat 替代 cat] ------------------------------------------------
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat -p'

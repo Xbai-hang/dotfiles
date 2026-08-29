@@ -24,29 +24,6 @@ y() {
 	command rm -f -- "$tmp"
 }
 
-# Lazygit 增强：退出时自动 cd 到你在 lazygit 中最后浏览的目录
-lazy() {
-  if ! command -v lazygit >/dev/null 2>&1; then
-    echo "❌ 未检测到 lazygit，请先安装 (brew install lazygit)" >&2
-    return 1
-  fi
-  local temp_file
-  temp_file="$(mktemp -t "lazygit-cwd.XXXXXX")"
-
-  # 传入 --cwd-file 参数，让 lazygit 在退出时把最后所在的路径写入临时文件
-  lazygit --cwd-file="$temp_file" "$@"
-
-  if [[ -f "$temp_file" ]]; then
-    local cwd
-    cwd=$(cat "$temp_file")
-    if [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
-      cd "$cwd" || return
-      eza -l -g --icons # 顺便秀一下，进入后自动列出文件
-    fi
-    rm -f "$temp_file"
-  fi
-}
-
 # killport: 一键强杀占用指定端口的进程 (例如: killport 3000)
 killport() {
   local port=$1
